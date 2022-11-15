@@ -1,27 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'star',
   template: `
-  <button class='btn' [ngClass]='isActive ? "btn-danger" : "btn-warning"' (click)='toggle()'>Click me</button>
-  <button class='btn' [class.btn-primary]='!isClicked' [class.btn-secondary]='isClicked' (click)='onClick()'>Click me</button>
+  <!-- <button class='btn' [ngClass]='isActive ? "btn-danger" : "btn-warning"' (click)='toggle()'>Click me</button> -->
+  <button 
+    class='btn' 
+    [class.btn-warning]='isClicked' 
+    (click)='onClick()'
+  >
+    Click me
+  </button>
 `,
-  styleUrls: ['./star.component.css']
+  styleUrls: []
 })
-export class StarComponent implements OnInit {
-  toggle() {
-    this.isActive = !this.isActive;
-  }
+export class StarComponent {
+  // toggle() {this.isActive = !this.isActive;}
+  // isActive = false;
 
-  isActive = false;
+  @Input('isActive') isClicked: boolean = false;
+  @Output('change') click = new EventEmitter();
 
   onClick() {
-    this.isClicked = !this.isClicked
-  }
-
-  isClicked: boolean = false;
-
-  ngOnInit(): void {
+    this.isClicked = !this.isClicked;
+    this.click.emit(this.isClicked);
   }
 
 }

@@ -1,1 +1,5 @@
-<titles></titles>
+<star [isActive]="post.isClicked" (change)="onChange($event)"></star>
+<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
+<br>
+
+<zippy title="Title">Content</zippy> 

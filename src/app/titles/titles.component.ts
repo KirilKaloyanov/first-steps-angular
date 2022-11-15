@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
     <br />
     <span>{{title | capitalize}}</span>
   `,
-  styleUrls: ['./titles.component.css']
+  styleUrls: []
 })
 export class TitlesComponent implements OnInit {
 

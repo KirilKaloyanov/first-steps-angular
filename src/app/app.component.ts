@@ -2,9 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'Angular first-project';
+  post = {
+    title: 'Post',
+    isClicked: false
+  }
+
+  onChange(isChanged: boolean) {
+    console.log('Change occurred!', isChanged);
+  }
+
+  tweet = {
+    isLiked: true,
+    likesCount: 10
+  }
 }
