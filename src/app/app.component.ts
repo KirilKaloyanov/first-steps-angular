@@ -5,17 +5,22 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  
+  // Like Component
+  tweet = {
+    isLiked: true,
+    likesCount: 10
+  }
+  
+  // Star component
   post = {
     title: 'Post',
     isClicked: false
   }
 
   onChange(isChanged: boolean) {
-    console.log('Change occurred!', isChanged);
+    this.post.isClicked = isChanged;
+    console.log('Change occurred!', this.post.isClicked);
   }
 
-  tweet = {
-    isLiked: true,
-    likesCount: 10
-  }
 }

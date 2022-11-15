@@ -1,5 +1,7 @@
+
+<like [isActive]="tweet.isLiked" [likesCount]="tweet.likesCount"></like>
+<br>
 <star [isActive]="post.isClicked" (change)="onChange($event)"></star>
-<like [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like>
 <br>
 
-<zippy title="Title">Content</zippy> 
+<zippy title="This title is a string set in the title attribute of the zippy component used in app.html. It changes the value of the title class field of the zippy component which is marked as @Input">This is content inside the zippy component when used in the app.html which is injected in zippy.html through the ng-content tag.</zippy> 

@@ -4,20 +4,18 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
-import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
 import { StarComponent } from './star/star.component';
 import { TitlesComponent } from './titles/titles.component';
-import { CapitalizePipe } from './capitalize.pipe';
-import { LikeComponent } from './like.component';
+import { CapitalizePipe } from './titles/capitalize.pipe';
 import { ZippyComponent } from './zippy.componet';
+import { LikeComponent } from './like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CoursesComponent,
-    CourseComponent,
     SummaryPipe,
     StarComponent,
     TitlesComponent,
