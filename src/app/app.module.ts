@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { CoursesComponent } from './courses.component';
 import { CoursesService } from './courses.service';
 import { SummaryPipe } from './summary.pipe';
-import { StarComponent } from './star/star.component';
+import { StarComponent } from './star.component';
 import { TitlesComponent } from './titles/titles.component';
 import { CapitalizePipe } from './titles/capitalize.pipe';
 import { ZippyComponent } from './zippy.componet';
 import { LikeComponent } from './like.component';
+import { ZippyContainerComponent } from './zipContian';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LikeComponent } from './like.component';
     TitlesComponent,
     CapitalizePipe,
     LikeComponent,
-    ZippyComponent
+    ZippyComponent,
+    ZippyContainerComponent
   ],
   imports: [
     BrowserModule,
