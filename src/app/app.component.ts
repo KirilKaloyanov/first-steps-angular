@@ -23,4 +23,11 @@ export class AppComponent {
     console.log('Change occurred!', this.post.isClicked);
   }
 
+  touch = false;
+
+  onAppTouch() {
+    this.touch = !this.touch;
+    console.log('Touched', this.touch);
+  }
+
 }

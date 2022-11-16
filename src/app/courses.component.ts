@@ -5,25 +5,57 @@ import { CoursesService } from './courses.service';
     selector: 'courses',
     template: `
         <h2>{{ title }}</h2>
+        <div> *ngFor directive loops through an array.</div>
         <ul>
             <li *ngFor="let course of courses">{{course}}</li>
         </ul>
-
-        <button (click)='onSave($event)' class="btn btn-primary m-2">Save</button>
+        <div>The click button triggers onClick method which logs the event on the console.</div>
+        <button (click)='onClick($event)' class="btn btn-primary m-2">Click</button>
         <br/>
+        <div> A template variable is declared by adding #varName as a property in the html tag.</div>
+        <input #myName (keyup.enter)="onSave(myName)"/>
+        <br/>
+        <br/>
+        <div> One-way property binding </div>
+        <div>The value of the input comes from the property in the class, but when the value of the</div>
+        <div>input is changed and enter is pressed the handler still logs the same value in the console.</div>
+        <div>Alternatively, if we set (keyup.enter)="surname = $event.target.value; onSurname()" </div>
+        <div>this will work as two-way binding.</div>
+        <input [value]="surname" (keyup.enter)="onSurname()" />
+        <br/>
+        <br/>
+        <div> Banana in a box [()]</div>
+        <div> ngModel is a directive for implementing two-way binding. </div>
+        <div> Inititally the email property is empty string, but when a value is type </div>
+        <div> and enter is pressed the value gets updated and the new value is logged in the console.</div>
+        <div> ngModel is part of the FormsModule, which must be imported from @angular/forms</div>
+        <div> ilbrary and declared in the imports array in app.module.</div>
         <input [(ngModel)]="email" (keyup.enter)="onKeyEnter()"/>
         <br/>
-
+        <br/>
+        <h2>Custom Pipes</h2>
+        <div>To create custom pipe first create a ts file and import Pipe decorator and </div>
+        <div>PipeTransform interface. Check the definition of this interface at angular.io</div>
+        <div> Then the .ts must be included in the app.module declarations.</div>
         {{text | summary: 10}}
         `
 })
 export class CoursesComponent {
-    title = 'List of courses';
+    title = 'Courses Component';
     courses;
-    email = 'email.com';
+    surname = 'empty';
+    email = '';
 
-    onSave($event: any) {
+    onClick($event: any) {
         console.log('clicked', $event);
+    }
+
+    onSave(myName: any) {
+        console.log(myName.value);
+    }
+
+    onSurname() {
+        console.log(this.surname);
     }
 
     onKeyEnter() {
