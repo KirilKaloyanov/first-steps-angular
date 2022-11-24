@@ -6,9 +6,11 @@ import { CoursesService } from './courses.service';
     template: `
         <h2>{{ title }}</h2>
         <div> *ngFor directive loops through an array.</div>
-        <ul>
-            <li *ngFor="let course of courses">{{course}}</li>
+        <div> *ngIf renders an element based on a condition.</div>
+        <ul *ngIf="courses.length > 0">
+            <li *ngFor="let course of courses; trackBy: trackCourse">{{course.name}}</li>
         </ul>
+        <div *ngIf='courses.length <=0'> no courses yet </div>
         <div>The click button triggers onClick method which logs the event on the console.</div>
         <button (click)='onClick($event)' class="btn btn-primary m-2">Click</button>
         <br/>
@@ -42,9 +44,10 @@ import { CoursesService } from './courses.service';
 })
 export class CoursesComponent {
     title = 'Courses Component';
-    courses;
+    courses: any[];
     surname = 'empty';
     email = '';
+
 
     onClick($event: any) {
         console.log('clicked', $event);
@@ -64,7 +67,11 @@ export class CoursesComponent {
 
     text = '[webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled. Angular is running in development mode. Call enableProdMode() to enable production mode.'
 
+    trackCourse(index: number, course: any) {
+        return course ? course.id : undefined;
+    }
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
+        // this.courses = []; 
     }
 }

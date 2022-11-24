@@ -12,6 +12,7 @@ import { CapitalizePipe } from './titles/capitalize.pipe';
 import { ZippyComponent } from './zippy.componet';
 import { LikeComponent } from './like.component';
 import { ZippyContainerComponent } from './zipContian';
+import { SwitchCaseComponent } from './switchCaseComponent';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ZippyContainerComponent } from './zipContian';
     CoursesComponent,
     SummaryPipe,
     StarComponent,
+    SwitchCaseComponent,
     TitlesComponent,
     CapitalizePipe,
     LikeComponent,
