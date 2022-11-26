@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Provider } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +13,19 @@ import { ZippyComponent } from './zippy.componet';
 import { LikeComponent } from './like.component';
 import { ZippyContainerComponent } from './zipContian';
 import { SwitchCaseComponent } from './switchCaseComponent';
+import { ClickComponent } from './examples/clickComponent/click.component';
+import { InputComponent } from './examples/inputComponent/input.component';
+import { SolidComponent } from './softUni/solidComponent/solid.component';
+
+const myProvider: Provider = {
+  // useValue: 123,
+  useClass: class MyClass {
+    constructor() {
+      console.log('Nameless class was constructed')
+    }
+  },
+  provide: 'Test'
+};
 
 @NgModule({
   declarations: [
@@ -25,14 +38,18 @@ import { SwitchCaseComponent } from './switchCaseComponent';
     CapitalizePipe,
     LikeComponent,
     ZippyComponent,
-    ZippyContainerComponent
+    ZippyContainerComponent,
+    ClickComponent,
+    InputComponent,
+    SolidComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    myProvider
   ],
   bootstrap: [AppComponent]
 })

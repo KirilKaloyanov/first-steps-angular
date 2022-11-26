@@ -1,4 +1,12 @@
-
+<h2>Solid Component</h2>
+<input #nameInput >
+<button class="btn btn-primary" (click)="addUserHandler(nameInput)">Add user</button>
+<solid [users]="users"></solid>
+<br>
+<br>
+<br>
+<br>
+<br>
 <like [isActive]="tweet.isLiked" [likesCount]="tweet.likesCount"></like>
 <br>
 <star [isActive]="post.isClicked" (change)="onChange($event)" (touch)="onAppTouch()"></star>
@@ -18,3 +26,11 @@
 <br>
 <br>
 <switch-case></switch-case>
+<br>
+<br>
+<h1>Examples</h1>
+<br>
+<click-component></click-component>
+<br>
+<br>
+<input-component></input-component>

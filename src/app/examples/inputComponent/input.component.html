@@ -1,0 +1,8 @@
+<h2>Input Component</h2>
+<span>One-way binding</span>
+<input [value]="text" (keyup.enter)="text = $event.target; logInput()" />
+<span>Press enter to log the input value on the console.</span>
+<br>
+<span>Two-way binding</span>
+<input [(ngModel)]="field" (keyup.enter)="logField()" />
+<span>Press enter to log the input value on the console.</span>
